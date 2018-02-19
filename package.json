@@ -1,5 +1,8 @@
 {
   "name": "project",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "bootstrap-sass": "^3.3.7"
+  }
 }

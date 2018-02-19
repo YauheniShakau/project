@@ -11,32 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :post_description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :body %>
-    <%= form.text_area :body, id: :post_body %>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :genre %>
-    <%= form.text_field :genre, id: :post_genre %>
+    <%= form.text_field :genre, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :published %>
-    <%= form.check_box :published, id: :post_published %>
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn-lg btn-primary" %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  
 <% end %>
+
