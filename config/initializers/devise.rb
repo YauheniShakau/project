@@ -4,6 +4,8 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.omniauth :facebook, "332146143959441", "c1f9cac79c6284f4d371c4a8130c8198"
+  config.omniauth :twitter, "8Ey2BWnG24S8Yn6Ut5WhM52Ys", "hAsCHRC2LysOo5SUZqqquqXZy8Pakgkt3RBVDqW9jSDmdaJr7a"
+  config.omniauth :vkontakte, "fwNSV0pM21tNHSiLu8FO", "7ce9045e7ce9045e7ce9045edf7c89f0f277ce97ce9045e266427fc051d80166115fd9a"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
