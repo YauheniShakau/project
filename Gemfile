@@ -61,3 +61,4 @@ gem 'simple_form'
 gem 'record_tag_helper', '~> 1.0'
 gem 'cancancan', '~> 2.0'
 gem 'omniauth-facebook'
+gem "paperclip", "~> 5.2.1"
