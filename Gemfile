@@ -64,3 +64,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'activerecord-session_store'
 gem 'omniauth-vkontakte'
+gem "paperclip", "~> 5.2.1"
+gem 'will_paginate', '~> 3.1.0'
