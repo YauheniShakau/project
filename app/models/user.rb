@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, 
   :validatable, :confirmable, :omniauthable,
-  :omniauth_providers => [:facebook, :twitter, :vkontakte]
+  omniauth_providers: %i[facebook]
+  has_many :posts
   has_many :comments
   has_many :posts
 
@@ -25,12 +26,6 @@ def self.new_with_session(params, session)
 		if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
 			user.email = data["email"] if user.email.blank?
 		end
-    if data = session["devise.twitter_data"] && session["devise.twitter_data"]["extra"]["raw_info"]
-      user.email = data["email"] if user.email.blank?
-    end
-    if data = session["devise.vkontakte_data"] && session["devise.vkontakte_data"]["extra"]["raw_info"]
-      user.email = data["email"] if user.email.blank?
-    end
 	end
 end
 
