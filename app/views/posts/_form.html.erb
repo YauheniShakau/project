@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div id="dropzone-area" style="width:825px;height:300px;display:block;margin:20px auto;border:1px solid red;"></div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.js"></script>
+  <b>Image</b>
+  <div class="form-control", id="dropzone-area" style="width:825px;height:300px;"></div>
   <script type="text/javascript">
   var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
     uploadMultiple: false,
@@ -25,7 +25,16 @@
     formData.append('timestamp', Date.now() / 1000 | 0);
     formData.append('upload_preset', 'project_preset');
   });
+  myDropzone.on('success', function (file, response) {
+  console.log('Success! Cloudinary public ID is', response.url);
+  var my_url= response.url
+   $(document).ready(function(){
+        $("#url_field").val(my_url);
+   });
+  });
   </script>
+
+  <%= form.hidden_field :image_url ,:id=>"url_field" %>
 
   <div class="form-group">
     <%= form.label :title %>
