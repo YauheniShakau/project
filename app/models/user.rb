@@ -7,7 +7,6 @@ class User < ApplicationRecord
   omniauth_providers: %i[facebook]
   has_many :posts
   has_many :comments
-  has_many :posts
 
   def self.from_omniauth(auth)
   	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

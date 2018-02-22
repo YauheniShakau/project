@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: du58rk7pc
+  api_key: '768762848513131'
+  api_secret: K2I6ZLz7gbOZqUd-3UYqfbQVzkg
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: du58rk7pc
+  api_key: '768762848513131'
+  api_secret: K2I6ZLz7gbOZqUd-3UYqfbQVzkg
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: du58rk7pc
+  api_key: '768762848513131'
+  api_secret: K2I6ZLz7gbOZqUd-3UYqfbQVzkg
+  enhance_image_tag: true
+  static_image_support: false
