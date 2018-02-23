@@ -5,28 +5,35 @@
 		<div class="row">
 			<div class="col-md-9">
 				<% @posts.each do |post| %>
-				<div class="post row clearfix">
-					<h2>
-						<%= link_to post.title, post %><br>
-					</h2>
-					<%= image_tag(post.image_url) %><br>
-					<time class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
-						<% if post.user %>
-						<%= post.user.name %></time>
-						<% else %>
-						<%= 'Unknown User' %>
-						<% end %><br>
-						<p><%= post.description %></p>
-						
+				<article class="card mb-4">
+					<header class="card-header">
+						<div class="card-meta">
+							<time class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
+								<% if post.user %>
+								<%= post.user.name %>
+								<% else %>
+								<%= 'Unknown User' %>
+								<% end %>
+							</time> in <a href="#">Journey</a>
+						</div>
+						<h1 class="card-title"><%= link_to post.title, post %><br></h1>
+					</header>
+					<a href="/posts/<%= post.id %>">
+						<img class="card-img" src="<%= post.image_url %>"/>
+					</a>
+					<div class="card-body">
+						<p class="card-text"><%= post.description %></p>
 					</div>
-					<% end %>
-				</div>
-				<div class="col-md-3 ml-auto">
-				</div>
-			</div><!-- /.card -->
-		</aside>
+				</article><!-- /.card -->
+				<% end %>
+				<%= will_paginate @posts %>
+			</div>
+			<div class="col-md-3 ml-auto">
+			</div>
+		</div><!-- /.card -->
+	</aside>
 
-	</div>
+</div>
 </div>
 </div>
 
