@@ -1,34 +1,15 @@
-<main class="main pt-4" role="main">
-
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-9">
-				<% @posts.each do |post| %>
-				<div class="post row clearfix">
-					<h2>
-						<%= link_to post.title, post %><br>
-					</h2>
-					<%= image_tag(post.image_url) %><br>
-					<time class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
-						<% if post.user %>
-						<%= post.user.name %></time>
-						<% else %>
-						<%= 'Unknown User' %>
-						<% end %><br>
-						<p><%= post.description %></p>
-						
-					</div>
-					<% end %>
-				</div>
-				<div class="col-md-3 ml-auto">
-				</div>
-			</div><!-- /.card -->
-		</aside>
-
-	</div>
+<% @posts.each do |post| %>
+<div class="post row clearfix">
+	<h2>
+		<%= link_to post.title, post %><br>
+		<%= image_tag(post.image_url) %><br>
+		<small class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
+			<% if post.user %>
+			<%= post.user.name %></small>
+			<% else %>
+            <%= 'Unknown User' %>
+			<% end %>
+	</h2>
 </div>
-</div>
-
-</main>
+<% end %>
 <%= will_paginate @posts %>
