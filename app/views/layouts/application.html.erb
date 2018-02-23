@@ -2,31 +2,62 @@
 <html>
 <head>
 	<title>iFanfiction</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'application',  media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<header class="navbar navbar-default" role="navigation">
-		<div class="navbar-inner">
+	<header role="banner">
+		<nav class="navbar navbar-expand-md navbar-light bg-white absolute-top">
 			<div class="container">
-				<div id="logo" class="navbar-brand"><%= link_to "iFanfiction", root_path %></div>
-				<nav class="collapse navbar-collapse navbar-ex1-collapse">
+
+				<button class="navbar-toggler order-2 order-md-1" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse order-3 order-md-2" id="navbar">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown02">
+								<a class="dropdown-item" href="home-onecolumn.html">Top</a>
+								<a class="dropdown-item" href="home-twocolumn.html">Fresh</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<a class="navbar-brand mx-auto order-1 order-md-3" href="/">iFanficti☻n</a>
+
+				<div class="collapse navbar-collapse order-4 order-md-4" id="navbar">
 					<% if user_signed_in? -%>
-					<ul class="nav navbar-nav navbar-right">
-						<li><%= link_to 'Submit post', new_post_path %></li>
-						<li><%= link_to 'Account', edit_user_registration_path %></li>
-						<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href=<%= new_post_path %>>Submit</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href=<%= edit_user_registration_path %>>Account</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href=<%= destroy_user_session_path %>>Sign out</a>
+						</li>
 					</ul>
 					<% else -%>
-					<ul class="nav navbar-nav pull-right">
-						<li><%= link_to 'Sign up', new_user_registration_path %></li>
-						<li><%= link_to 'Sign in', new_user_session_path %></li>
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href=<%= new_user_session_path %>>Sign in</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href=<%= new_user_registration_path %>>Sign up</a>
+						</li>
 					</ul>
-					<% end -%>
-				</nav>
+					<%end%>
+					<form class="form-inline" role="search">
+						<input class="search js-search form-control form-control-rounded mr-sm-2" type="text" title="Enter search query here.." placeholder="Search.." aria-label="Search">
+					</form>
+				</div>
 			</div>
-		</div>
+		</nav>
 	</header>
 
 	<div id="main_content" class="container">
