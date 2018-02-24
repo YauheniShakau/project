@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
   end
 
+  def top
+      @posts = Post.with_ratings.paginate(:page => params[:page], :per_page => 6)
+      render action: 'index'
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -73,4 +78,4 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :description, :body, :genre, :image_url)
     end
-end
+  end
