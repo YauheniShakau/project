@@ -13,26 +13,6 @@
 
   <b>Image</b>
   <div class="form-control", id="dropzone-area" style="width:825px;height:300px;"></div>
-  <script type="text/javascript">
-  var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
-    uploadMultiple: false,
-    acceptedFiles:'.jpg,.png,.jpeg,.gif',
-    parallelUploads: 6,
-    url: 'https://api.cloudinary.com/v1_1/du58rk7pc/image/upload'
-  });
-  myDropzone.on('sending', function (file, xhr, formData) {
-    formData.append('api_key', 768762848513131);
-    formData.append('timestamp', Date.now() / 1000 | 0);
-    formData.append('upload_preset', 'project_preset');
-  });
-  myDropzone.on('success', function (file, response) {
-  console.log('Success! Cloudinary public ID is', response.url);
-  var my_url= response.url
-   $(document).ready(function(){
-        $("#url_field").val(my_url);
-   });
-  });
-  </script>
 
   <%= form.hidden_field :image_url ,:id=>"url_field" %>
 
@@ -62,3 +42,23 @@
   
 <% end %>
 
+<script type="text/javascript">
+  var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
+    uploadMultiple: false,
+    acceptedFiles:'.jpg,.png,.jpeg,.gif,.webp',
+    parallelUploads: 6,
+    url: 'https://api.cloudinary.com/v1_1/du58rk7pc/image/upload'
+  });
+  myDropzone.on('sending', function (file, xhr, formData) {
+    formData.append('api_key', 768762848513131);
+    formData.append('timestamp', Date.now() / 1000 | 0);
+    formData.append('upload_preset', 'project_preset');
+  });
+  myDropzone.on('success', function (file, response) {
+  console.log('Success! Cloudinary public ID is', response.url);
+  var my_url= response.url
+   $(document).ready(function(){
+        $("#url_field").val(my_url);
+   });
+  });
+  </script>

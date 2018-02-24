@@ -5,11 +5,7 @@
     <div class="card-meta">
       <h1 class="card-title"><%= link_to @post.title, @post %><br></h1>
       <time class="author">Submitted <%= time_ago_in_words(@post.created_at) %> by 
-        <% if @post.user %>
-        <%= @post.user.name %>
-        <% else %>
-        <%= 'Unknown User' %>
-        <% end %>
+        <%= show_name(@post.user) %>
       </time> in <a href="#">Journey</a>
     </div>
   </header>
@@ -17,7 +13,6 @@
     <img class="card-img" src="<%= @post.image_url %>"/>
   </a>
   <div class="card-body">
-    <p class="card-text"><%= @post.description %></p>
   </div>
   <% if can? :update, @post -%>
   <div class="btn-group">
@@ -25,6 +20,10 @@
     <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
   </div>
   <% end %>
+  <hr>
+  <p class="card-text"><%= @post.description %></p>
+  <hr>
+  <p class="card-text"><%= @post.body %></p>
   <h3 class="comments_title">
     <%= @post.comments.count %> Comments
   </h3>
