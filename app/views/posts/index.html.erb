@@ -9,14 +9,15 @@
 					<header class="card-header">
 						<div class="card-meta">
 							<h1 class="card-title"><%= link_to post.title, post %><br></h1>
-							<time class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
-								<%= show_name(post.user) %>
-							 in <a href="#">Journey</a></time>
 						</div>
 					</header>
 					<a href="/posts/<%= post.id %>">
 						<img class="card-img" src="<%= post.image_url %>"/>
-					</a>
+					</a><br>
+					<time class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
+								<%= show_name(post.user) %>
+							 in <a href="#">Journey</a></time>
+							 <p><%= rating_for post, 'Rating', disable_after_rate: true, cancel: false %></p>
 					<div class="card-body">
 						<h3> Description: </h3>
 						<p class="card-text"><%= post.description %></p>
@@ -31,3 +32,4 @@
 </div>
 <%= will_paginate @posts %>
 </main>
+
