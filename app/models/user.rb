@@ -7,6 +7,7 @@ class User < ApplicationRecord
   omniauth_providers: %i[facebook twitter vkontakte]
   has_many :posts
   has_many :comments
+  ratyrate_rater
 
   def self.from_omniauth(auth)
   	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

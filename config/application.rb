@@ -20,7 +20,7 @@ module Project
    :domain => "mail.google.com",
    :port => 587,
    :user_name => "dogdothisbetter@gmail.com",
-   :password => "8558dog8558",
+   :password => "dogdothisbetter8558",
    :authentication => 'login',
    :enable_starttls_auto => true
    
