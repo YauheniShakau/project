@@ -26,8 +26,17 @@
 
     <div class="form-group">
       <%= f.submit "Sign up", class: "btn btn-lg btn-primary" %>
+      <%= link_to user_facebook_omniauth_authorize_path, class: "btn  btn-social" do %>
+        <i class="fa fa-facebook-square fa-3x"></i>
+        <% end %>
+        <%= link_to user_vkontakte_omniauth_authorize_path, class: "btn  btn-social" do %>
+        <i class="fa fa-vk fa-3x"></i>
+        <% end %>
+        <%= link_to user_twitter_omniauth_authorize_path, class: "btn  btn-social" do %>
+        <i class="fa fa-twitter fa-3x"></i>
+        <% end %>
     </div>
 
 <% end %>
 
-<%= render "devise/shared/links" %> 
+<%= render "devise/shared/links" %>

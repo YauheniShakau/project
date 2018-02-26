@@ -3,14 +3,33 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="panel panel-default">
+  <div class="panel-body">
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <div class="form-inputs">
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+        <%= link_to user_facebook_omniauth_authorize_path, class: "btn  btn-social" do %>
+        <i class="fa fa-facebook-square fa-3x"></i>
+        <% end %>
+        <%= link_to user_vkontakte_omniauth_authorize_path, class: "btn  btn-social" do %>
+        <i class="fa fa-vk fa-3x"></i>
+        <% end %>
+        <%= link_to user_twitter_omniauth_authorize_path, class: "btn  btn-social" do %>
+        <i class="fa fa-twitter fa-3x"></i>
+        <% end %>
+      </div>
+
+      <% end %>
+    </div>
+
   </div>
-<% end %>
+</div>
 
 <%= render "devise/shared/links" %>
