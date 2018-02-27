@@ -5,9 +5,9 @@ class RaterController < ApplicationController
       obj = params[:klass].classify.constantize.find(params[:id])
       obj.rate params[:score].to_f, current_user, params[:dimension]
 
-      render :json => true
+      render.includes(:rating_cache) :json => true
     else
-      render :json => false
+      render.includes(:rating_cache) :json => false
     end
   end
 end

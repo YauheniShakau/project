@@ -4475,7 +4475,6 @@ tbody.collapse.show {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 .navbar-brand {
     font-family: "PT Serif", serif;
-    text-transform: lowercase;
     font-weight: 700; }
 .navbar, .navbar * {
     -webkit-transition: all .25s ease-in-out;

@@ -5,11 +5,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => 1)
+    @posts = Post.order('created_at DESC').paginate(:page => params[:page], :per_page => 3).includes(:user)
   end
 
   def top
-      @posts = Post.with_ratings.paginate(:page => params[:page], :per_page => 1)
+      @posts = Post.with_ratings.paginate(:page => params[:page], :per_page => 3).includes(:user)
       render action: 'index'
   end
 

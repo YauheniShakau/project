@@ -10,10 +10,10 @@
     <img class="card-img" src="<%= @post.image_url %>"/>
   </a><br>
   <time class="author">Submitted <%= time_ago_in_words(@post.created_at) %> by 
-    <%= show_name(@post.user) %>
-    in <a href="#">Journey</a></time>
+    <%= show_name(@post.user) %></time>
     <div class="card-body">
     </div>
+    <p><%= rating_for @post, 'Rating', disable_after_rate: true, cancel: false %></p>
     <% if can? :update, @post -%>
     <div class="btn-group">
       <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default" %>

@@ -9,8 +9,7 @@
 		<img class="card-img" src="<%= post.image_url %>"/>
 	</a><br>
 	<time class="author">Submitted <%= time_ago_in_words(post.created_at) %> by 
-		<%= show_name(post.user) %>
-		in <a href="#">Journey</a></time>
+		<%= show_name(post.user) %></time>
 		<p><%= rating_for post, 'Rating', disable_after_rate: true, cancel: false %></p>
 		<div class="card-body">
 			<h3> Description: </h3>
